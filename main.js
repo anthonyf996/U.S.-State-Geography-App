@@ -61,6 +61,7 @@ function getImgMapScaleFactor( originalDim, currDim ) {
 }
 function searchInReader( href, state ) {
   return function () { 
+    updateReaderSrc( href );
     showEmbed( "./img/" + state + "State.pdf" );
     hideReaderDescr();
   }
@@ -88,6 +89,9 @@ function showEmbed( src ) {
     img.style.height = "70vh";
     btn_select_state.style.display = "none";
   }
+}
+function updateReaderSrc( href ) {
+  document.querySelector( "#reader" ).src = href;
 }
 function hideReaderDescr() {
   readerDescr = document.querySelector( "#reader-descr" );
