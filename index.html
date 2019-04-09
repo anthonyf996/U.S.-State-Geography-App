@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study U.S. Geography</title>
+  <link type="text/css" rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <main>
+    <section class="cont-img">
+      <img src="./img/USA_Labled.png" usemap="#states">
+      <embed src="" style="display: none" type="application/pdf">
+    </section>
+    <map name="states"></map>
+
+    <section class="cont-reader">
+      <div class="cont-nav-btns">
+        <button id="btn-select-state" onclick="showSelectState()" style="display: none">Select State</button>
+        <button id="btn-maximize-reader" onclick="maximizeReader()">Maximize Reader</button>
+      </div>
+      <div id="reader-descr">
+        <p class="reader-descr">SELECT STATE</p>
+      </div>
+      <iframe id="reader" src=""></iframe>
+    </section>
+  </main>
+
+  <script src="img_map_coords.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
