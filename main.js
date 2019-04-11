@@ -49,12 +49,20 @@ function addImgMapCoords( mapQuerySelector, coordsArr, href, state, widthScaleFa
     }
   }
 
-  // Create new area element and add to image map
-  var area = document.createElement( "AREA" );
-  area.shape = "poly";
-  area.coords = coordsStr;
-  area.onclick = searchInReader( href, state );
-  document.querySelector( mapQuerySelector ).appendChild( area );
+  if ( document.querySelector( "#" + state ) == null ) {
+    // Create new area element and add to image map
+    var area = document.createElement( "AREA" );
+    area.shape = "poly";
+    area.coords = coordsStr;
+    area.onclick = searchInReader( href, state );
+    area.id = state;
+    document.querySelector( mapQuerySelector ).appendChild( area );
+  }
+  else {
+    // Update area element with new coordinates
+    area = document.querySelector( "#" + state );
+    area.coords = coordsStr;
+  }
 }
 function getImgMapScaleFactor( originalDim, currDim ) {
   return currDim / originalDim;
@@ -121,5 +129,7 @@ function maximizeReader() {
     document.querySelector( "#btn-maximize-reader" ).innerHTML = "Minimize Reader";
   }
 }
+
+window.addEventListener( "resize", initImgMapCoords );
 
 initImgMapCoords();
