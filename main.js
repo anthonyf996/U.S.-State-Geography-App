@@ -70,6 +70,11 @@ function getImgMapScaleFactor( originalDim, currDim ) {
 function searchInReader( href, state ) {
   return function () { 
     updateReaderSrc( href );
+    words = state.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      words[i] = capitalizeFirstChar(words[i]);
+    };
+    state = words.join(" ");
     showEmbed( "./img/" + state + "State.pdf" );
     hideReaderDescr();
   }
