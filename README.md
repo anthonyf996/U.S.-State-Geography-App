@@ -1,4 +1,4 @@
-# U.S.-State-Geography-App
+# U.S. State Geography App
 
 
 Demo: https://youtu.be/hGZ9bt61AFM
